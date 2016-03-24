@@ -95,8 +95,9 @@ class ViewController: UIViewController {
             let row = i/3
             let col = i%3
             imageButton.frame = CGRectMake(startX + CGFloat(col)*(width + margin), startY + CGFloat(row) * (height + margin), width, height)
-            imageButton.sd_setImageWithURL(NSURL(string: urls[i]), forState: UIControlState.Normal)
-//            imageButton.setImage(UIImage(named: "22.jpg"), forState: UIControlState.Normal)
+//            imageButton.sd_setImageWithURL(NSURL(string: urls[i]), forState: UIControlState.Normal)
+            imageButton.setImage(UIImage(named: "22.jpg"), forState: UIControlState.Normal)
+//            imageButton.setImage(UIImage(named: "save.png"), forState: UIControlState.Normal)
             
             // 监听事件
             imageButton.tag = i
@@ -120,7 +121,7 @@ class ViewController: UIViewController {
             let url = urls[i].stringByReplacingOccurrencesOfString("thumbnail", withString: "bmiddle")
             
             // 这行可以注销试试看
-            photo.url = NSURL(string: url)
+//            photo.url = NSURL(string: url)
             
             // 这行可以注销试试看
 //                        if i < 2 {  // 测试 假如图片过多 2张以后没有imageview 消失效果 意思就是：前2张有imageview的消失的时候会回到原图位置  没有imageview的则直接动画消失

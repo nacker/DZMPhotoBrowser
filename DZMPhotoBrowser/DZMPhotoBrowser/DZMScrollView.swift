@@ -19,7 +19,7 @@ class DZMScrollView: UIScrollView,UIScrollViewDelegate {
         didSet{
             // 有链接
             if photo.url != nil {
-        
+                
                 if photo.imageView != nil {
                     imageView.image = photo.imageView.image
                     adjustFrame()
@@ -83,7 +83,7 @@ class DZMScrollView: UIScrollView,UIScrollViewDelegate {
     // MARK: -  手势操作
     
     func handleSingleTap(tap:UITapGestureRecognizer) {
-     
+        
         UIView.animateWithDuration(DZMWindow.shareWindow.animateDuration, animations: { [weak self]() -> Void in
             DZMWindow.shareWindow.myWindow.alpha = 0
             
@@ -101,20 +101,21 @@ class DZMScrollView: UIScrollView,UIScrollViewDelegate {
                 self!.imageView.alpha = 0
             }
             
-            }) { (isOK) -> Void in
-                DZMWindow.shareWindow.hidden()
+        }) { (isOK) -> Void in
+            DZMWindow.shareWindow.hidden()
         }
     }
     
     func handleDoubleTap(tap:UITapGestureRecognizer) {
-    
-//        let touchPoint = tap.locationInView(self)
+        
+        let touchPoint = tap.locationInView(imageView)
         
         if zoomScale == maximumZoomScale {
             setZoomScale(minimumZoomScale, animated: true)
         }else{
-            setZoomScale(maximumZoomScale, animated: true)
-//            zoomToRect(CGRectMake(touchPoint.x, touchPoint.y, 1, 1), animated: true)
+            let wh:CGFloat = 1
+            let zoomRect = CGRectMake(touchPoint.x, touchPoint.y, wh, wh)
+            zoomToRect(zoomRect, animated: true)
         }
     }
     
