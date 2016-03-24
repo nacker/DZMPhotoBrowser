@@ -108,12 +108,13 @@ class DZMScrollView: UIScrollView,UIScrollViewDelegate {
     
     func handleDoubleTap(tap:UITapGestureRecognizer) {
     
-        let touchPoint = tap.locationInView(self)
+//        let touchPoint = tap.locationInView(self)
         
         if zoomScale == maximumZoomScale {
             setZoomScale(minimumZoomScale, animated: true)
         }else{
-            zoomToRect(CGRectMake(touchPoint.x, touchPoint.y, 1, 1), animated: true)
+            setZoomScale(maximumZoomScale, animated: true)
+//            zoomToRect(CGRectMake(touchPoint.x, touchPoint.y, 1, 1), animated: true)
         }
     }
     
