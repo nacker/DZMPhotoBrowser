@@ -96,7 +96,7 @@ class ViewController: UIViewController {
             let col = i%3
             imageButton.frame = CGRectMake(startX + CGFloat(col)*(width + margin), startY + CGFloat(row) * (height + margin), width, height)
             imageButton.sd_setImageWithURL(NSURL(string: urls[i]), forState: UIControlState.Normal)
-            //            imageButton.setImage(UIImage(named: "save.png"), forState: UIControlState.Normal)
+//            imageButton.setImage(UIImage(named: "22.jpg"), forState: UIControlState.Normal)
             
             // 监听事件
             imageButton.tag = i

@@ -63,12 +63,15 @@ class DZMPhotoBrowser: UIViewController,UIScrollViewDelegate,DZMScrollViewDelega
         view.addSubview(photoScrollView)
         
         // 保存按钮
+        let BGView = UIView()
+        BGView.backgroundColor = UIColor.clearColor()
         saveButton = UIButton(type: UIButtonType.Custom)
         saveButton.adjustsImageWhenHighlighted = false
         saveButton.setImage(UIImage(named: "save"), forState: UIControlState.Normal)
         saveButton.addTarget(self, action: #selector(DZMPhotoBrowser.saveImage), forControlEvents: UIControlEvents.TouchUpInside)
         let saveButtonWH:CGFloat = 35
-        saveButton.frame = CGRectMake((UIScreen.mainScreen().bounds.width - saveButtonWH)/2, UIScreen.mainScreen().bounds.height - saveButtonWH - 20, saveButtonWH, saveButtonWH)
+        BGView.frame = CGRectMake((UIScreen.mainScreen().bounds.width - saveButtonWH)/2, UIScreen.mainScreen().bounds.height - saveButtonWH - 20, saveButtonWH, saveButtonWH)
+        saveButton.frame = BGView.bounds
 
         // 摆放图片
         for i in 0 ..< photos.count {
@@ -95,7 +98,8 @@ class DZMPhotoBrowser: UIViewController,UIScrollViewDelegate,DZMScrollViewDelega
         }
      
         // 最后添加按钮确保显示最上层
-        view.addSubview(saveButton)
+        view.addSubview(BGView)
+        BGView.addSubview(saveButton)
     }
     
     // MARK: - DZMScrollViewDelegate
