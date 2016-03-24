@@ -123,11 +123,11 @@ class ViewController: UIViewController {
             photo.url = NSURL(string: url)
             
             // 这行可以注销试试看
-                        if i < 2 {  // 测试 假如图片过多 2张以后没有imageview 消失效果 意思就是：前2张有imageview的消失的时候会回到原图位置  没有imageview的则直接动画消失
+//                        if i < 2 {  // 测试 假如图片过多 2张以后没有imageview 消失效果 意思就是：前2张有imageview的消失的时候会回到原图位置  没有imageview的则直接动画消失
             
             // 这行可以注销试试看
             photo.imageView = (scrollView.subviews[i] as! UIButton).imageView
-                        }
+//                        }
             
             photos.append(photo)
         }
