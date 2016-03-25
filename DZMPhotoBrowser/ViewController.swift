@@ -17,6 +17,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         /*  xcode 7.3   swift2.2  不支持按钮图片 建议用imageview  目前UIButton会强引用导致内存泄露 不要使用按钮中的imageview
+         
+         // 如需按钮点击  可以继承UIControl 里面放个imageview  这样也不会进行强引用 但是UIButton按钮会强引用
+         
          需要导入SDWebImage  图片保存相册成功的提示有需求的话就自己加 DZMPhotoBrowser 文件的这个方法里面添加判断已做好 UI效果都有 提示效果可自己添加
          func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo: UnsafePointer<()>)
          
@@ -114,7 +117,6 @@ class ViewController: UIViewController {
     
     // 使用显示代码
     func showPhotoBrowser(tapView:UIView , photos:[DZMPhoto]) {
-        
         
         // 显示
         let photoBrowser = DZMPhotoBrowser()
